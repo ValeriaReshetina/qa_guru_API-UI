@@ -2,7 +2,7 @@ package guru.qa.config;
 import org.aeonbits.owner.Config;
 
 @org.aeonbits.owner.Config.Sources({
-        "classpath:local.properties"
+        "classpath:config.properties"
 })
 
 public interface BookStoreConfig extends Config {
