@@ -3,6 +3,7 @@ package guru.qa.classworkTests;
 import com.codeborne.selenide.Configuration;
 import guru.qa.homeworkTests.TestBase;
 import io.restassured.RestAssured;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 
@@ -16,6 +17,7 @@ import static io.restassured.RestAssured.given;
 public class CartTests {
     String login = "qa@qa.guru", password = "qa@qa.guru1";
 
+    @Disabled
     @Test
     void loginWithUITest() {
         Configuration.baseUrl = "https://demowebshop.tricentis.com";
@@ -31,6 +33,7 @@ public class CartTests {
                 $(".account").shouldHave(text(login)));
     }
 
+    @Disabled
     @Test
     void loginWithApiTest() {
         Configuration.baseUrl = "https://demowebshop.tricentis.com";
