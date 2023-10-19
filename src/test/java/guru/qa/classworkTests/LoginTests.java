@@ -1,5 +1,8 @@
 package guru.qa.classworkTests;
 
+import com.codeborne.selenide.Configuration;
+import guru.qa.homeworkTests.TestBase;
+import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 
@@ -10,9 +13,12 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 
-public class LoginTests extends TestBase {
+public class LoginTests {
+    String login = "qa@qa.guru", password = "qa@qa.guru1";
     @Test
     void loginWithUITest() {
+        Configuration.baseUrl = "https://demowebshop.tricentis.com";
+        RestAssured.baseURI = "https://demowebshop.tricentis.com";
         step("Open login page", () ->
                 open("/login"));
         step("Fill login form", () -> {
@@ -26,6 +32,8 @@ public class LoginTests extends TestBase {
 
     @Test
     void loginWithApiTest() {
+        Configuration.baseUrl = "https://demowebshop.tricentis.com";
+        RestAssured.baseURI = "https://demowebshop.tricentis.com";
         step("Get authorization cookie by api and set it to browser", () -> {
             String authCookieKey = "NOPCOMMERCE.AUTH";
             String authCookieValue = given()
