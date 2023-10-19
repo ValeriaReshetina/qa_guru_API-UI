@@ -1,21 +1,22 @@
 package guru.qa.config;
 import org.aeonbits.owner.Config;
 
-    @BookStoreConfig.Sources({
-            "classpath:config.properties"
-    })
+@org.aeonbits.owner.Config.Sources({
+        "classpath:local.properties"
+})
 
-    public interface BookStoreConfig extends Config {
+public interface BookStoreConfig extends Config {
 
-        @Key("baseUrl")
-        String baseUrl();
+    @Key("baseUrl")
+    String baseUrl();
 
-        @Key("browser")
-        String browser();
+    @Key("browser")
+    String browser();
 
-        @Key("browserVersion")
-        String browserVersion();
+    @Key("browserVersion")
+    String browserVersion();
 
-        @Key("browserSize")
-        String browserSize();
+    @Key("browserSize")
+    String browserSize();
 }
+
