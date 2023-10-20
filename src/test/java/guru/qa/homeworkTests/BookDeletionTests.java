@@ -4,6 +4,7 @@ import guru.qa.data.TestData;
 import guru.qa.models.LoginResponseModel;
 import guru.qa.pages.ProfilePage;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 
@@ -18,8 +19,9 @@ public class BookDeletionTests extends TestBase {
     ProfilePage profilePage = new ProfilePage();
     TestData testData = new TestData();
 
-    @Test
+    @Tag("remote")
     @DisplayName("Deleting book from user profile")
+    @Test
     void bookDeletionTest(){
         LoginResponseModel loginResponse = successfulAuthorisation(testData.login, testData.password);
         bookDeletion(loginResponse.getUserId(), loginResponse.getToken());

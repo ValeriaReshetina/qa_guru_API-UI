@@ -2,7 +2,7 @@ package guru.qa.config;
 import org.aeonbits.owner.Config;
 
 @BookStoreConfig.Sources({
-        "classpath:config.properties"
+        "classpath:local.properties"
 })
 
 public interface BookStoreConfig extends Config {
@@ -18,5 +18,13 @@ public interface BookStoreConfig extends Config {
 
     @Key("browserSize")
     String browserSize();
+
+    @Key("remoteUrl")
+    @DefaultValue("")
+    String getRemoteUrl();
+
+    @Key("remoteAuth")
+    @DefaultValue("")
+    String getRemoteAuth();
 }
 
