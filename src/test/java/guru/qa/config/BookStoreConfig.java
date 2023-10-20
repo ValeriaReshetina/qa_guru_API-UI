@@ -1,7 +1,7 @@
 package guru.qa.config;
 import org.aeonbits.owner.Config;
 
-@org.aeonbits.owner.Config.Sources({
+@BookStoreConfig.Sources({
         "classpath:config.properties"
 })
 
