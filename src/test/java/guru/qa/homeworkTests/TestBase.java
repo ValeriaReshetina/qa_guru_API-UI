@@ -19,7 +19,6 @@ public class TestBase {
         Configuration.browser = config.browser();
         Configuration.browserVersion = config.browserVersion();
         Configuration.browserSize = config.browserSize();
-        Configuration.pageLoadStrategy = "eager";
 
         String selenoidHome = config.getRemoteUrl();
         String selenoidCredentials = config.getRemoteAuth();
