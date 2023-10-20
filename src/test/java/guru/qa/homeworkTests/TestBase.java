@@ -1,14 +1,19 @@
 package guru.qa.homeworkTests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import guru.qa.config.BookStoreConfig;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
+
+import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+import static guru.qa.helpers.AttachHelper.*;
 
 public class TestBase {
     protected static final BookStoreConfig config = ConfigFactory.create(BookStoreConfig.class, System.getProperties());
@@ -34,8 +39,17 @@ public class TestBase {
         }
     }
 
-    @AfterAll
-    static void afterAll() {
-        Selenide.closeWebDriver();
+    @BeforeEach
+    void addListener() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
+
+    @AfterEach
+    void addAttachments() {
+        screenshotAs("Last screenshot");
+        pageSource();
+        browserConsoleLogs();
+        addVideo();
+        closeWebDriver();
     }
 }
