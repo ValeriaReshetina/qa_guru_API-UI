@@ -19,7 +19,6 @@ public class BookDeletionTests extends TestBase {
     ProfilePage profilePage = new ProfilePage();
     TestData testData = new TestData();
 
-    @Tag("remote")
     @DisplayName("Deleting book from user profile")
     @Test
     void bookDeletionTest(){
